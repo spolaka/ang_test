@@ -11,7 +11,7 @@ function MsgController($scope) {
 
   $scope.checkTooMuch = function () {
     var arrayOfStrings = $scope.items.split(',');
-    if(arrayOfStrings[0] == $scope.items)
+    if(arrayOfStrings[0].trim().length == 0)
     {
       $scope.message = "Please enter data first";
     }
