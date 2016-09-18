@@ -11,16 +11,24 @@ function MsgController($scope) {
 
   $scope.checkTooMuch = function () {
     var arrayOfStrings = $scope.items.split(',');
-    if(arrayOfStrings[0].trim().length == 0)
+
+    var count = 0;
+    for(var i = 0 ; i < arrayOfStrings.length;i++ ){
+      if(arrayOfStrings[i].trim().length > 0)
+      {
+        count += 1;
+      }
+    }
+
+    if(count == 0)
     {
       $scope.message = "Please enter data first";
     }
-    else if(arrayOfStrings.length > 3)
+    else if(count > 3)
     {
       $scope.message = "Too much!" ;
     }
-    else if(arrayOfStrings.length > 0)
-    {
+    else{
       $scope.message = "Enjoy!";
     }
 
